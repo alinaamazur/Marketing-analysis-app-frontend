@@ -1,0 +1,84 @@
+.Workspace-sidebar {
+    width: 8.13rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Sidebar {
+    background-color: #C0D5F0;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.Sidebar-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 6.25rem;
+    margin-bottom: 3.75rem;
+}
+
+.Nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.Nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.69rem;
+    font-weight: bold;
+    color: #515151;
+    cursor: pointer;
+    border-bottom: 0.06rem solid #b0b0b0;
+}
+
+.Nav-item:hover {
+    color: #223145;
+}
+
+.Training-icon,
+.Statistics-icon,
+.Sentiment-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.Competitors-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.Reports-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+}
+
+.Abtesting-icon {
+    width: 5rem;
+    height: 5rem;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+}
+
+.Settings-icon {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+.Nav-items a {
+    text-decoration: none;
+    color: inherit;
+}

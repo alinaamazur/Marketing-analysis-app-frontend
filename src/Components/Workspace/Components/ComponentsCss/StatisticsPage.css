@@ -1,0 +1,183 @@
+.Statistics-page {
+    display: flex;
+    height: 100vh;
+    background-color: #f5faff;
+    overflow-y: hidden;
+}
+
+.Add-profiles-sidebar {
+    width: 4%;
+    background-color: white;
+    align-items: center;
+    padding-top: 1rem;
+    box-shadow: 0 0.44rem 1.56rem rgba(0, 0, 0, 0.1);
+}
+
+.Sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Sidebar-icons img,
+.Sidebar-icons button {
+    margin-bottom: 1.25rem;
+}
+
+.Sidebar-icons img {
+    width: 2.06rem;
+    height: 2.06rem;
+    border-radius: 50%;
+}
+
+.Sidebar-icons button {
+    width: 2.06rem;
+    height: 2.06rem;
+    background-color: transparent;
+    color: #104fa2;
+    border-radius: 100%;
+    border: 0.06rem solid #104fa2;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.38rem;
+    line-height: 1;
+}
+
+.Statistics-content {
+    flex: 1;
+    padding: 1.25rem 2.5rem;
+    overflow-y: auto;
+}
+
+.Statistics-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.Profile-name {
+    display: flex;
+    align-items: center;
+    gap: 0.63rem;
+    color: black;
+}
+
+.Profile-name img {
+    width: 2.38rem;
+    height: 2.38rem;
+}
+
+.Date-picker .Calendar-input {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.88rem;
+    border-radius: 0.38rem;
+    border: 0.06rem solid #c4c4c4;
+}
+
+.Statistics-blocks {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.88rem;
+}
+
+.Statistics-card {
+    flex: 1;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.13rem 0.38rem rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Statistics-card span {
+    font-size: 0.88rem;
+    color: #555;
+}
+
+.Statistics-card strong {
+    font-size: 1.13rem;
+    margin-top: 0.25rem;
+    color: black;
+}
+
+.Graph-block {
+    background-color: white;
+    padding: 0.63rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0.13rem 0.38rem rgba(0, 0, 0, 0.05);
+}
+
+.Graph-block h2 {
+    font-size: 1.38rem;
+    margin-bottom: 0.75rem;
+    color: #104FA2;
+    font-weight: inherit;
+    padding: 0 1.25rem;
+}
+
+.Top-posts h2 {
+    font-size: 1.38rem;
+    margin-bottom: 1.25rem;
+    color: #104FA2;
+    font-weight: inherit;
+}
+
+.Graph-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.Top-posts {
+    background-color: white;
+    box-shadow: 0 0.13rem 0.38rem rgba(0, 0, 0, 0.05);
+    border-radius: 0.75rem;
+    padding: 0.94rem 2.06rem;
+}
+
+.Top-posts-block {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.Post-card {
+    display: flex;
+    align-items: center;
+    width: 15.63rem;
+    height: 19.38rem;
+    background-color: #F4F4F4;
+    border-radius: 0.31rem;
+}
+
+.Post-card-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.94rem;
+}
+
+.Post-card img {
+    width: 13.81rem;
+    height: 13.81rem;
+    padding-left: 0.88rem;
+}
+
+.Post-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.94rem;
+}

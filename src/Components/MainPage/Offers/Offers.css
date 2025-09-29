@@ -1,0 +1,131 @@
+.Offers {
+    position: relative;
+    margin: 2.5rem 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.Offers-header {
+    text-align: center;
+    font-size: 1.88rem;
+    margin-bottom: 6.25rem;
+}
+
+.Bubble {
+    position: absolute;
+    z-index: -1;
+}
+
+.Offers-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9.38rem;
+}
+
+.Offers-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.Offers-section.Reverse {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.Account-statistics-img,
+.Competitor-tracking-img {
+    max-width: 26.88rem;
+    height: auto;
+}
+
+.Report-generation-img {
+    max-width: 24.37rem;
+    height: auto;
+}
+
+.A-B-testing-img {
+    max-width: 18.75rem;
+    height: auto;
+}
+
+.Sentiment-analysis-img {
+    max-width: 31.25rem;
+    height: auto;
+}
+
+.Offers-section-content {
+    max-width: 31.25rem;
+}
+
+.Offers-section-header {
+    font-size: 1.56rem;
+    font-weight: bold;
+    margin-bottom: 1.88rem;
+}
+
+.Offers-section-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 1.56rem;
+}
+
+.Offers-section-button {
+    font-size: 1.38rem;
+    font-weight: bold;
+    color: #E83333;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.Offers-section-button:hover {
+    color: #ea4646;
+}
+
+.Header-bubble {
+    width: 3.13rem;
+    top: 1.25rem;
+    right: 6.38rem;
+}
+
+.Account-statistics-bubble {
+    width: 6.23rem;
+    top: 8.31rem;
+    left: -8.31rem;
+}
+
+.Competitor-tracking-bubble {
+    width: 6.23rem;
+    top: 24.44rem;
+    right: -4.06rem;
+}
+
+.Report-generation-bubble {
+    width: 5.63rem;
+    top: 49.63rem;
+    left: 5.44rem;
+}
+
+.A-B-testing-bubble {
+    width: 31.25rem;
+    top: 81.13rem;
+    left: -13.25rem;
+}
+
+.Sentiment-analysis-bubble {
+    width: 9.38rem;
+    top: 126.98rem;
+    right: 1.31rem;
+}
+
+.First-bubble {
+    width: 15.63rem;
+    bottom: 15.63rem;
+    left: 1.25rem;
+}

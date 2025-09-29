@@ -1,0 +1,80 @@
+.Personal-dashboard {
+    flex: 1;
+    padding: 0.94rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding-left: 1.5rem;
+    padding-right: 3.13rem;
+}
+
+.Personal-dashboard-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.88rem;
+    color: #104FA2;
+}
+
+.Personal-dashboard-description {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #303030;
+}
+
+.Personal-dashboard-list {
+    background: #edf7ff;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.Personal-dashboard-items {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+}
+
+.Dashboard-item {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #303030;
+}
+
+.Personal-dashboard-description.desc-bold {
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.Connect-profiles-text-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: last baseline;
+    gap: 1.25rem;
+}
+
+.Connect-profiles-wrapper p {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.Connect-profiles-wrapper img {
+    margin-top: 1.25rem;
+    width: 12.5rem;
+    height: 6.25rem;
+    transform: rotate(-10deg);
+}
+
+.Connect-profiles-button {
+    background-color: #E83333;
+    color: #ffffff;
+    padding: 1.25rem 1.88rem;
+    border: none;
+    font-size: 1.25rem;
+    border-radius: 6.25rem;
+    cursor: pointer;
+    margin-left: 31.25rem;
+    margin-top: -1.25rem;
+}
+
+.Connect-profiles-button:hover {
+    background-color: #b9251b;
+}

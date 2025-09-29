@@ -1,0 +1,141 @@
+.Training-page {
+    flex: 1;
+    padding: 0.94rem 3.13rem 0.94rem 1.5rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.Personal-dashboard-title {
+    margin-bottom: 3.13rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.Training-page-main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    color: #303030;
+}
+
+.Training-page-left-content {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.Training-page-right-content {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.Left-content-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0.05rem solid #AAAAAA;
+    padding: 1.25rem 0.94rem;
+    border-radius: 0.63rem;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+}
+
+.Left-content-item:hover {
+    background-color: #eeeded;
+}
+
+.Left-content-item p {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.Left-content-item button {
+    font-size: 0.94rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.Useful-information,
+.Need-help-block {
+    border: 0.05rem solid #AAAAAA;
+    border-radius: 10px;
+    padding: 0.94rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.25rem;
+}
+
+.Useful-information p,
+.Need-help-title {
+    color: #303030;
+    font-size: 1.13rem;
+    margin: 0;
+}
+
+.Useful-information-list,
+.Need-help-desc {
+    color: #8E8E8E;
+    font-size: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Useful-information-list li {
+    margin-bottom: 0.63rem;
+    cursor: pointer;
+}
+
+.Useful-information-list li:hover {
+    color: #a09f9f;
+}
+
+.Need-help-button {
+    border: none;
+    color: #104FA2;
+    font-size: 0.81rem;
+    background: transparent;
+    font-weight: bold;
+    padding: 0;
+    margin-top: 0.31rem;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.Need-help-button:hover {
+    color: #1e5eb1;
+}
+
+.Status-blue {
+    color: #104FA2;
+}
+
+.Status-blue:hover {
+    color: #296ac0;
+}
+
+.Status-green {
+    color: #29A619;
+}
+
+.Status-green:hover {
+    color: #31b121;
+}
+
+.Status-coming-soon {
+    color: white;
+    font-style: italic;
+    background: linear-gradient(90deg, #7F5CFF, #FF52DA);
+    padding: 0.5rem 0.94rem;
+    border-radius: 3.13rem;
+}
+
+.Status-coming-soon:hover {
+    background: linear-gradient(90deg, #8c71ee, #f36bd5);
+}

@@ -1,0 +1,31 @@
+.Workspace-header {
+    background-color: white;
+    padding: 0.63rem 1.5rem;
+    box-shadow: 0 0.44rem 1.56rem rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.My-workspace-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Workspace-header-text {
+    font-size: 1rem;
+    flex: 1;
+    color: #515151;
+}
+
+.Workspace-header-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.Workspace-header-img img {
+    height: 1.75rem;
+    width: 1.75rem;
+}

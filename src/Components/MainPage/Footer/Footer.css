@@ -1,0 +1,88 @@
+.Welcome-page-footer {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.8rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.Logo {
+    height: 1.25rem;
+    width: 6.25rem;
+    margin: 1.1rem 0 0.5rem 0;
+}
+
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 5rem;
+}
+
+
+.Left-text {
+    font-size: 1rem;
+    color: #303030;
+    margin-bottom: 2.25rem;
+}
+
+.Support-section {
+    font-size: 1rem;
+    color: #303030;
+}
+
+.Support-email {
+    color: #E83333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Support-email:hover {
+    color: #D12222;
+}
+
+.Footer-right {
+    display: flex;
+    justify-content: space-between;
+    gap: 7rem;
+}
+
+.Products,
+.About-us {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 1.63rem;
+}
+
+.Products-list,
+.About-us-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.88rem;
+    color: #8F8F8F;
+}
+
+.Products-list li,
+.About-us-list li {
+    margin-bottom: 0.63rem;
+    cursor: pointer;
+}
+
+.Copyright {
+    text-align: left;
+    font-size: 0.81rem;
+    color: #8F8F8F;
+    margin-top: 4rem;
+}
+
+.Footer-link {
+    text-decoration: none;
+    color: #8F8F8F;
+}
+
+.Footer-link:hover {
+    color: #8F8F8F;
+}

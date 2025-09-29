@@ -5,12 +5,16 @@
     overflow: hidden;
 }
 
+.Logo {
+    margin-top: 0.8rem;
+}
+
 .Log-in-page-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    margin: 34px 100px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    margin: 2.13rem 5rem;
 }
 
 .Log-in-header-text-section {
@@ -26,7 +30,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 0.81rem;
 }
 
 .Sign-up-button {
@@ -34,7 +38,7 @@
 }
 
 .Log-in-header-button:hover {
-    color: #3179d6;
+    color: #3d81db;
 }
 
 .Log-in-main-section {
@@ -45,35 +49,36 @@
 
 .Log-in-main-section h2 {
     text-align: center;
-    margin: 40px 0;
+    margin: 2.5rem 0;
+    font-size: 1.7rem;
 }
 
 .Log-in-inputs {
     display: flex;
     flex-direction: column;
-    width: 412px;
+    width: 25.75rem;
 }
 
 .Log-in-input {
-    height: 44px;
-    border-radius: 12px;
-    font-size: 12px;
-    padding-left: 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    padding-left: 1.25rem;
+    border: 0.06rem solid #ccc;
+    margin-bottom: 0.63rem;
 }
 
 .Log-in-button {
-    width: 412px;
-    height: 40px;
+    width: 25.75rem;
+    height: 2.5rem;
     background-color: #5C9AEB;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 90px;
+    border-radius: 5.63rem;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .Log-in-button:hover {
@@ -83,25 +88,25 @@
 .Divider-section {
     display: flex;
     align-items: center;
-    width: 405px;
+    width: 25.31rem;
     justify-content: space-between;
     color: #AAAAAA;
-    font-size: 12px;
-    margin: 20px 0;
+    font-size: 0.75rem;
+    margin: 1.25rem 0;
 }
 
 .Divider {
-    width: 188px;
-    border: 0.5px solid #AAAAAA;
+    width: 11.75rem;
+    border: 0.03rem solid #AAAAAA;
     height: 0;
 }
 
 .Social-media-input {
-    height: 40px;
-    border-radius: 90px;
-    font-size: 14px;
+    height: 2.5rem;
+    border-radius: 5.63rem;
+    font-size: 1rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.63rem;
     background-color: transparent;
     cursor: pointer;
     display: flex;
@@ -109,7 +114,7 @@
 }
 
 .Facebook-log-in {
-    border: 1px solid #2871D2;
+    border: 0.06rem solid #2871D2;
 }
 
 .Facebook-log-in:hover {
@@ -117,7 +122,7 @@
 }
 
 .Google-log-in {
-    border: 1px solid #A3A3A3;
+    border: 0.06rem solid #A3A3A3;
     color: #A3A3A3;
     font-weight: bold;
 }
@@ -127,19 +132,19 @@
 }
 
 .Forgot-password-text {
-    font-size: 12px;
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 0.63rem;
 }
 
 .Social-icon {
-    width: 22px;
-    height: 22px;
-    border-radius: 100px;
-    margin-left: 6px;
-    margin-right: 105px;
+    width: 1.38rem;
+    height: 1.38rem;
+    border-radius: 6.25rem;
+    margin-left: 0.38rem;
+    margin-right: 6.56rem;
 }
 
 .Social-icon-google {
-    margin-right: 113px;
+    margin-right: 7.06rem;
 }

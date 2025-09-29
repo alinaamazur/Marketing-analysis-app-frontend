@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './Components/WelcomePage/Header/Header.css';
-import './Components/WelcomePage/MainContent/MainContent.css';
-import './Components/WelcomePage/WelcomePage.css';
+import './Components/MainPage/WelcomePage/Header/Header.css';
+import './Components/MainPage/WelcomePage/MainContent/MainContent.css';
+import './Components/MainPage/WelcomePage/WelcomePage.css';
 
-import WelcomePage from './Components/WelcomePage/WelcomePage';
-import Offers from './Components/Offers/Offers';
-import Examples from './Components/Examples/Examples';
-import Footer from './Components/Footer/Footer';
+import WelcomePage from './Components/MainPage/WelcomePage/WelcomePage';
+import Offers from './Components/MainPage/Offers/Offers';
+import Examples from './Components/MainPage/Examples/Examples';
+import Footer from './Components/MainPage/Footer/Footer';
 
 import LogInPage from './Components/Pages/LogInPage/LogIn';
-import SignUpPage from './Components/Pages/RegisterPage/RegisterPage'
+import SignUpPage from './Components/Pages/RegisterPage/RegisterPage';
+import MyWorkspacePage from './Components/Workspace/Workspace';
 
 const MainPage = () => (
   <div>
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/log-in" element={<LogInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/my-workspace/*" element={<MyWorkspacePage />} />
       </Routes>
     </BrowserRouter>
   );
