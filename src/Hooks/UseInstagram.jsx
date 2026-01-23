@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchInstagramData } from "../api/instagram";
+import { fetchInstagramData } from "../Api/instagram";
 
 export function useInstagram() {
     const [data, setData] = useState(null);

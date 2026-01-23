@@ -1,4 +1,4 @@
-.Statistics-page {
+.Statistics-page-loaded {
     display: flex;
     height: 100vh;
     background-color: #f5faff;
@@ -19,24 +19,29 @@
     align-items: center;
 }
 
-.Sidebar-icons img,
-.Sidebar-icons button {
+.Sidebar-icons img {
     margin-bottom: 1.25rem;
 }
 
-.Sidebar-icons img {
+.Sidebar-profile-icon {
     width: 2.06rem;
     height: 2.06rem;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.Add-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .Sidebar-icons button {
     width: 2.06rem;
     height: 2.06rem;
     background-color: transparent;
-    color: #104fa2;
-    border-radius: 100%;
-    border: 0.06rem solid #104fa2;
+    border: none;
     padding: 0;
     cursor: pointer;
     display: flex;
@@ -69,11 +74,17 @@
 .Profile-name img {
     width: 2.38rem;
     height: 2.38rem;
+    border-radius: 50%;
+}
+
+.Profile-name p {
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
 }
 
 .Date-picker .Calendar-input {
     padding: 0.38rem 0.75rem;
-    font-size: 0.88rem;
+    font-size: 1rem;
     border-radius: 0.38rem;
     border: 0.06rem solid #c4c4c4;
 }
@@ -118,7 +129,7 @@
 
 .Graph-block h2 {
     font-size: 1.38rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
     color: #104FA2;
     font-weight: inherit;
     padding: 0 1.25rem;
@@ -142,6 +153,7 @@
     box-shadow: 0 0.13rem 0.38rem rgba(0, 0, 0, 0.05);
     border-radius: 0.75rem;
     padding: 0.94rem 2.06rem;
+    margin-bottom: 5rem;
 }
 
 .Top-posts-block {
@@ -180,4 +192,9 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 0.94rem;
+    padding-left: 0.7rem;
+}
+
+.Followers-graph {
+    margin: 0 auto;
 }

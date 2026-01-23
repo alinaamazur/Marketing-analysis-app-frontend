@@ -1,4 +1,4 @@
-.Competitors-page {
+.Competitors-page-loaded {
     display: flex;
     height: 100vh;
     background-color: #f5faff;
@@ -17,102 +17,58 @@
     margin-bottom: 1.25rem;
 }
 
-.Competitors-block,
-.Results-block {
+.Competitors-block {
+    display: grid;
+    grid-template-columns: 380px repeat(5, 1fr);
+    align-items: center;
+    font-size: 1.2rem;
     background-color: white;
-    padding: 0.63rem;
+    padding: 0.63rem 1.88rem;
     border-radius: 0.75rem;
     margin-bottom: 1.25rem;
     box-shadow: 0 0.13rem 0.38rem rgba(0, 0, 0, 0.05);
 }
 
-.Competitors-block-title,
-.Competitors-total,
-.Results-block-title {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1.88rem;
-    color: #104FA2;
-    font-size: 1.25rem;
-    font-weight: lighter;
+.Competitors-title {
+    font-size: 1.38rem;
+    color: rgb(16, 79, 162);
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
-.Results-block-title {
-    justify-content: flex-start;
-    gap: 3.13rem;
+.Competitors-title:first-child {
+    text-align: left;
 }
 
-.Competitors-block-metrics {
-    padding-right: 1.19rem;
-}
-
-.Competitors-block-metrics,
-.Competitors-metrics-total {
-    display: flex;
-    justify-content: space-between;
-    gap: 6.25rem;
-}
-
-.Competitors-block-item,
-.Results-block-accounts-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1.88rem;
-    color: #8E8E8E;
-    font-size: 1.25rem;
-    font-weight: bold;
+.Competitor-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 380px repeat(5, 1fr);
     align-items: center;
+    padding: 0.5rem 0;
+    border-top: 1px solid #EBEBEB;
 }
 
-.Competitors-account,
-.Results-block-accounts-item {
+.Competitor-row p {
+    text-align: center;
+}
+
+.Competitors-account {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 0.63rem;
+    gap: 1rem;
+    text-align: left;
 }
 
-.Competitors-account img,
-.Results-block-accounts img {
-    width: 2.38rem;
-    height: 2.38rem;
+.Competitors-account img {
+    width: 2.05rem;
+    height: 2.05rem;
+    border-radius: 50%;
 }
 
-.Competitors-account p,
-.Results-block-accounts p {
+.Competitors-account p {
     color: black;
     font-weight: lighter;
-}
-
-.Competitors-metrics-results {
-    display: flex;
-    justify-content: space-between;
-    gap: 6.25rem;
-}
-
-.Competitors-total {
-    color: #8E8E8E;
-}
-
-.Competitors-block-title,
-.Competitors-block-item,
-.Results-block-title {
-    border-bottom: 0.06rem solid #EBEBEB;
-}
-
-.Results-metrics {
-    display: flex;
-    justify-content: space-between;
-}
-
-.Results-block-accounts {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.Results-graphs img {
-    width: 53.56rem;
-    height: 18.94rem;
+    font-size: 1.2rem;
 }

@@ -1,119 +1,173 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import AddAccounts from './AddAccounts';
+import EnterLinkPage from './EnterLinkPage';
+import { useInstagramStats } from '../../../Hooks/UseInstagramStats';
+import { formatNumbers } from '../../../utils/utils';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import '../Components/ComponentsCss/CompetitorsPage.css';
-import '../Components/ComponentsCss/StatisticsPage.css';
-import '../Components/ComponentsCss/PersonalDashboard.css';
 import '../Workspace.css';
 
-import companyicon from '../Icons/companyicon.png';
-import dogcompany from '../Icons/dogcompany.png';
-import viewsgraph from '../Icons/viewsgraph.png';
-
 const CompetitorsPage = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const today = new Date();
+    const sixDaysAgo = new Date();
+    sixDaysAgo.setDate(today.getDate() - 6);
+
+    const [data, setData] = useState(null);
+    const [accounts, setAccounts] = useState([]);
+    const [dateRange, setDateRange] = useState([sixDaysAgo, today]);
+    const [startDate, endDate] = dateRange;
+    const [showModal, setShowModal] = useState(false);
+
+    const { followersHistory, erHistory } = useInstagramStats(data, startDate, endDate);
+
+    useEffect(() => {
+        const savedData = localStorage.getItem('statisticsData');
+        const savedAccounts = localStorage.getItem('statisticsAccounts');
+
+        if (savedData) setData(JSON.parse(savedData));
+        if (savedAccounts) setAccounts(JSON.parse(savedAccounts));
+    }, []);
+
+    useEffect(() => {
+        if (data) {
+            localStorage.setItem('statisticsData', JSON.stringify(data));
+        }
+    }, [data]);
+
+    useEffect(() => {
+        if (accounts.length) {
+            localStorage.setItem('statisticsAccounts', JSON.stringify(accounts));
+        }
+    }, [accounts]);
 
     return (
         <div className='Competitors-page'>
-            <aside className='Add-profiles-sidebar'>
-                <div className='Sidebar-icons'>
-                    <img src={companyicon} alt='' />
-                    <img src={dogcompany} alt='' />
-                    <button>+</button>
-                    <button>+</button>
-                </div>
-            </aside>
+            {!data ? (
+                <EnterLinkPage
+                    onSuccess={(d) => {
+                        setAccounts(prev => [...prev, d]);
+                        setData(d);
+                    }}
+                />
+            ) : (
+                <div className='Competitors-page-loaded'>
+                    <aside className='Add-profiles-sidebar'>
+                        <AddAccounts
+                            accounts={accounts}
+                            setAccounts={setAccounts}
+                            setData={setData}
+                            openModal={() => setShowModal(true)}
+                        />
+                    </aside>
 
-            <div className='Competitors-content'>
-                <div className='Date-picker'>
-                    <DatePicker
-                        selected={startDate}
-                        onChange={date => setStartDate(date)}
-                        dateFormat='dd.MM.yyyy'
-                        className='Calendar-input'
-                    />
-                </div>
+                    <div className='Competitors-content'>
+                        <div className='Date-picker'>
+                            <DatePicker
+                                selectsRange
+                                startDate={startDate}
+                                endDate={endDate}
+                                maxDate={new Date()}
+                                onChange={setDateRange}
+                                dateFormat='dd.MM.yyyy'
+                                className='Calendar-input'
+                            />
+                        </div>
 
-                <div className='Competitors-block'>
-                    <div className='Competitors-block-title'>
-                        <p>Accounts</p>
-                        <div className='Competitors-block-metrics'>
-                            <p>Folowers</p>
-                            <p>Posts</p>
-                            <p>Likes</p>
-                            <p>Comments</p>
-                            <p>ER</p>
-                        </div>
-                    </div>
+                        <div className='Competitors-block'>
+                            <p className='Competitors-title'>Accounts</p>
+                            <p className='Competitors-title'>Followers</p>
+                            <p className='Competitors-title'>Posts</p>
+                            <p className='Competitors-title'>Likes</p>
+                            <p className='Competitors-title'>Comments</p>
+                            <p className='Competitors-title'>ER</p>
 
-                    <div className='Competitors-block-item'>
-                        <div className='Competitors-account'>
-                            <img src={companyicon} alt='' />
-                            <p>Meow Company</p>
+                            {accounts.map((account, idx) => (
+                                <CompetitorItem key={idx} data={account} />
+                            ))}
                         </div>
-                        <div className='Competitors-metrics-results'>
-                            <p>1,000,000</p>
-                            <p>10,000</p>
-                            <p>200,000</p>
-                            <p>2000</p>
-                            <p>20.2%</p>
-                        </div>
-                    </div>
 
-                    <div className='Competitors-block-item'>
-                        <div className='Competitors-account'>
-                            <img src={dogcompany} alt='' />
-                            <p>Woof Company</p>
-                        </div>
-                        <div className='Competitors-metrics-results'>
-                            <p>1,000,000</p>
-                            <p>10,000</p>
-                            <p>200,000</p>
-                            <p>2000</p>
-                            <p>20.2%</p>
-                        </div>
-                    </div>
+                        <Graph
+                            title="Followers"
+                            profile_name={data.name}
+                            data={followersHistory}
+                            dataKey="followers"
+                        />
+                        <Graph
+                            title="Engagement Rate"
+                            profile_name={data.name}
+                            data={erHistory}
+                            dataKey="er"
+                        />
 
-                    <div className='Competitors-total'>
-                        <p>Total</p>
-                        <div className='Competitors-metrics-total'>
-                            <p>2,000,000</p>
-                            <p>20,000</p>
-                            <p>400,000</p>
-                            <p>2000</p>
-                            <p>20.2%</p>
-                        </div>
                     </div>
                 </div>
+            )}
 
-                <div className='Results-block'>
-                    <div className='Results-block-title'>
-                        <p>Folowers</p>
-                        <p>Posts</p>
-                        <p>Likes</p>
-                        <p>Comments</p>
-                        <p>ER</p>
-                    </div>
-
-                    <div className='Results-metrics'>
-                        <div className='Results-block-accounts'>
-                            <div className='Results-block-accounts-item'>
-                                <img src={companyicon} alt='' />
-                                <p>Meow Company</p>
-                            </div>
-                            <div className='Results-block-accounts-item'>
-                                <img src={dogcompany} alt='' />
-                                <p>Woof Company</p>
-                            </div>
-                        </div>
-                        <div className='Results-graphs'>
-                            <img src={viewsgraph} alt='' />
-                        </div>
+            {showModal && (
+                <div className="Modal-overlay" onClick={() => setShowModal(false)}>
+                    <div className="Modal-content" onClick={e => e.stopPropagation()}>
+                        <EnterLinkPage
+                            onSuccess={(d) => {
+                                setAccounts(prev => [...prev, d]);
+                                setData(d);
+                                setShowModal(false);
+                            }}
+                        />
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
+
+const CompetitorItem = ({ data }) => (
+    <div className='Competitor-row'>
+        <div className='Competitors-account'>
+            <img src={data.profile_picture_url} alt={data.name} />
+            <p>{data.name}</p>
+        </div>
+
+        <p>{formatNumbers(data.followers)}</p>
+        <p>{formatNumbers(data.posts_count)}</p>
+        <p>{formatNumbers(data.likes_sum)}</p>
+        <p>{formatNumbers(data.comments_sum)}</p>
+        <p>{formatNumbers(data.engagement_rate)}</p>
+    </div>
+);
+
+const Graph = ({ title, profile_name, data, dataKey }) => (
+    <div className='Graph-block'>
+        <h2>{title} - {profile_name}</h2>
+        <ResponsiveContainer width='95%' height={400} className='Followers-graph'>
+            <LineChart data={data} margin={{ right: 10, bottom: 30, left: 15 }}>
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis
+                    dataKey='date'
+                    tickFormatter={(date) => new Date(date).toLocaleDateString('ru-RU')}
+                    tickMargin={23}
+                />
+                <YAxis
+                    domain={['auto', 'auto']}
+                    tickFormatter={(value) => {
+                        if (value >= 1_000_000) {
+                            return (value / 1_000_000).toFixed(1) + 'M';
+                        }
+
+                        if (value >= 1_000) {
+                            return (value / 1_000).toFixed(1) + 'K';
+                        }
+
+                        return value;
+                    }}
+                />
+                <Tooltip labelFormatter={(date) => new Date(date).toLocaleDateString('ru-RU')}
+                />
+                <Line type='monotone' dataKey={dataKey} stroke='#8884d8' />
+            </LineChart>
+        </ResponsiveContainer>
+    </div>
+);
 
 export default CompetitorsPage;

@@ -33,7 +33,7 @@ const WorkspaceSidebar = () => (
                     <Link to="/my-workspace/training"><NavItem label='Training' icon={TrainingImg} className='Training-icon' /></Link>
                     <Link to="/my-workspace/statistics"><NavItem label='Statistics' icon={StatisticsImg} className='Statistics-icon' /></Link>
                     <Link to="/my-workspace/competitors"><NavItem label='Competitors' icon={CompetitorImg} className='Competitors-icon' /></Link>
-                    <NavItem label='Reports' icon={ReportImg} className='Reports-icon' />
+                    {/* <NavItem label='Reports' icon={ReportImg} className='Reports-icon' /> */}
                     <NavItem label='A/B Testing' icon={AbTestingImg} className='Abtesting-icon' />
                     <NavItem label='Sentiment' icon={SmileImg} className='Sentiment-icon' />
                 </nav>

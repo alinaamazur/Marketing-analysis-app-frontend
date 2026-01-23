@@ -1,110 +1,181 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import AddAccounts from './AddAccounts';
+import EnterLinkPage from './EnterLinkPage';
+import { useInstagramStats } from '../../../Hooks/UseInstagramStats';
+import { formatNumbers } from '../../../utils/utils';
 import '../Components/ComponentsCss/StatisticsPage.css';
 import '../Workspace.css';
-import cat1 from '../Icons/topposts1.png';
-import cat2 from '../Icons/topposts2.png';
-import cat3 from '../Icons/topposts3.png';
-import cat4 from '../Icons/topposts4.png';
-import companyicon from '../Icons/companyicon.png';
-import folowersgraph from '../Icons/folowersgraph.png';
-import viewsgraph from '../Icons/viewsgraph.png';
-import ergraph from '../Icons/ergraph.png';
-
-const topPosts = [
-    { id: 1, img: cat1, likes: 1000, comments: 500, er: 0.1 },
-    { id: 2, img: cat2, likes: 1000, comments: 500, er: 0.1 },
-    { id: 3, img: cat3, likes: 1000, comments: 500, er: 0.1 },
-    { id: 4, img: cat4, likes: 900, comments: 500, er: 0.1 },
-];
 
 const StatisticsPage = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const today = new Date();
+    const sixDaysAgo = new Date();
+    sixDaysAgo.setDate(today.getDate() - 6);
+
+    const [data, setData] = useState(null);
+    const [accounts, setAccounts] = useState([]);
+    const [dateRange, setDateRange] = useState([sixDaysAgo, today]);
+    const [startDate, endDate] = dateRange;
+    const [showModal, setShowModal] = useState(false);
+
+    const { followersHistory, erHistory, topPosts } = useInstagramStats(data, startDate, endDate);
+
+    useEffect(() => {
+        const savedData = localStorage.getItem('statisticsData');
+        const savedAccounts = localStorage.getItem('statisticsAccounts');
+
+        if (savedData) setData(JSON.parse(savedData));
+        if (savedAccounts) setAccounts(JSON.parse(savedAccounts));
+    }, []);
+
+    useEffect(() => {
+        if (data) {
+            localStorage.setItem('statisticsData', JSON.stringify(data));
+        }
+    }, [data]);
+
+    useEffect(() => {
+        if (accounts.length) {
+            localStorage.setItem('statisticsAccounts', JSON.stringify(accounts));
+        }
+    }, [accounts]);
 
     return (
         <div className='Statistics-page'>
-            <aside className='Add-profiles-sidebar'>
-                <div className='Sidebar-icons'>
-                    <img src={companyicon} alt='' />
-                    <button>+</button>
-                    <button>+</button>
-                    <button>+</button>
-                </div>
-            </aside>
+            {!data ? (
+                <EnterLinkPage
+                    onSuccess={(d) => {
+                        setAccounts(prev => [...prev, d]);
+                        setData(d);
+                    }}
+                />
+            ) : (
+                <div className='Statistics-page-loaded'>
+                    <aside className='Add-profiles-sidebar'>
+                        <AddAccounts
+                            accounts={accounts}
+                            setAccounts={setAccounts}
+                            setData={setData}
+                            openModal={() => setShowModal(true)}
+                        />
+                    </aside>
 
-            <div className='Statistics-content'>
-                <div className='Statistics-header'>
-                    <div className='Profile-name'>
-                        <img src={companyicon} alt='Company' />
-                        <p>Meow company</p>
+                    <div className='Statistics-content'>
+                        <div className='Statistics-header'>
+                            <div className='Profile-name'>
+                                <img src={data.profile_picture_url} alt={data.name} />
+                                <p>{data.name}</p>
+                            </div>
+                            <div className='Date-picker'>
+                                <DatePicker
+                                    selectsRange
+                                    startDate={startDate}
+                                    endDate={endDate}
+                                    maxDate={new Date()}
+                                    onChange={setDateRange}
+                                    dateFormat='dd.MM.yyyy'
+                                    className='Calendar-input'
+                                />
+                            </div>
+                        </div>
+
+                        <div className='Statistics-blocks'>
+                            <div className='Statistics-card'>
+                                <span>Followers</span>
+                                <strong>{formatNumbers(data.followers)}</strong>
+                            </div>
+                            <div className='Statistics-card'>
+                                <span>Comments</span>
+                                <strong>{formatNumbers(data.comments_sum)}</strong>
+                            </div>
+                            <div className='Statistics-card'>
+                                <span>Likes</span>
+                                <strong>{formatNumbers(data.likes_sum)}</strong>
+                            </div>
+                            <div className='Statistics-card'>
+                                <span>Posts</span>
+                                <strong>{formatNumbers(data.posts_count)}</strong>
+                            </div>
+                            <div className='Statistics-card'>
+                                <span>ER</span>
+                                <strong>{data.engagement_rate}</strong>
+                            </div>
+                        </div>
+
+                        <Graph title="Followers" data={followersHistory} dataKey="followers" />
+                        <Graph title="Engagement Rate" data={erHistory} dataKey="er" />
+
+                        <div className='Top-posts'>
+                            <h2>Top Posts</h2>
+                            <div className='Top-posts-block'>
+                                {topPosts.map(post => (
+                                    <div className='Post-card'>
+                                        <div className='Post-card-item'>
+                                            <img src={post.post_url} alt='' />
+                                            <div className='Post-info'>
+                                                <span>❤️ {formatNumbers(post.likes)}</span>
+                                                <span>💬 {formatNumbers(post.comments)}</span>
+                                                <span>ER: {post.er}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    <div className='Date-picker'>
-                        <DatePicker
-                            selected={startDate}
-                            onChange={date => setStartDate(date)}
-                            dateFormat='dd.MM.yyyy'
-                            className='Calendar-input'
+                </div>
+            )}
+
+            {showModal && (
+                <div className="Modal-overlay" onClick={() => setShowModal(false)}>
+                    <div className="Modal-content" onClick={e => e.stopPropagation()}>
+                        <EnterLinkPage
+                            onSuccess={(d) => {
+                                setAccounts(prev => [...prev, d]);
+                                setData(d);
+                                setShowModal(false);
+                            }}
                         />
                     </div>
                 </div>
-
-                <div className='Statistics-blocks'>
-                    <div className='Statistics-card'>
-                        <span>Followers</span>
-                        <strong>500 000</strong>
-                    </div>
-                    <div className='Statistics-card'>
-                        <span>Comments</span>
-                        <strong>2 000</strong>
-                    </div>
-                    <div className='Statistics-card'>
-                        <span>Likes</span>
-                        <strong>10 000</strong>
-                    </div>
-                    <div className='Statistics-card'>
-                        <span>Reports</span>
-                        <strong>500</strong>
-                    </div>
-                    <div className='Statistics-card'>
-                        <span>ER</span>
-                        <strong>0.11</strong>
-                    </div>
-                </div>
-
-                <div className='Graph-block'>
-                    <h2>Followers</h2>
-                    <img src={folowersgraph} alt='Followers Graph' />
-                </div>
-                <div className='Graph-block'>
-                    <h2>Views</h2>
-                    <img src={viewsgraph} alt='Views Graph' />
-                </div>
-                <div className='Graph-block'>
-                    <h2>Engagement Rate</h2>
-                    <img src={ergraph} alt='Engagement Rate Graph' />
-                </div>
-
-                <div className='Top-posts'>
-                    <h2>Top Posts</h2>
-                    <div className='Top-posts-block'>
-                        {topPosts.map(post => (
-                            <div className='Post-card' key={post.id}>
-                                <div className='Post-card-item'>
-                                    <img src={post.img} alt={`Cat ${post.id}`} />
-                                    <div className='Post-info'>
-                                        <span>❤️ {post.likes}</span>
-                                        <span>💬 {post.comments}</span>
-                                        <span>ER: {post.er}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+            )}
         </div>
     );
 };
+
+const Graph = ({ title, data, dataKey }) => (
+    <div className='Graph-block'>
+        <h2>{title}</h2>
+        <ResponsiveContainer width='95%' height={400} className='Followers-graph'>
+            <LineChart data={data} margin={{ right: 10, bottom: 30, left: 15 }}>
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis
+                    dataKey='date'
+                    tickFormatter={(date) => new Date(date).toLocaleDateString('ru-RU')}
+                    tickMargin={23}
+                />
+                <YAxis
+                    domain={['auto', 'auto']}
+                    tickFormatter={(value) => {
+                        if (value >= 1_000_000) {
+                            return (value / 1_000_000).toFixed(1) + 'M';
+                        }
+
+                        if (value >= 1_000) {
+                            return (value / 1_000).toFixed(1) + 'K';
+                        }
+
+                        return value;
+                    }}
+                />
+                <Tooltip labelFormatter={(date) => new Date(date).toLocaleDateString('ru-RU')}
+                />
+                <Line type='monotone' dataKey={dataKey} stroke='#8884d8' />
+            </LineChart>
+        </ResponsiveContainer>
+    </div>
+);
 
 export default StatisticsPage;

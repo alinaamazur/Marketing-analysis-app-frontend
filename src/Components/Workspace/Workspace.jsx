@@ -8,19 +8,21 @@ import CompetitorsPage from './Components/CompetitorsPage';
 import './Workspace.css';
 import { Routes, Route } from 'react-router-dom';
 
-const MyWorkspacePage = () => (
-    <div className='Workspace-layout'>
-        <WorkspaceSidebar />
-        <div className='Workspace-main'>
-            <WorkspaceHeader />
-            <Routes>
-                <Route path="/" element={<PersonalDashboard />} />
-                <Route path="training" element={<TrainingPage />} />
-                <Route path="statistics" element={<StatisticsPage />} />
-                <Route path="competitors" element={<CompetitorsPage />} />
-            </Routes>
+const MyWorkspacePage = () => {
+    return (
+        <div className='Workspace-layout'>
+            <WorkspaceSidebar />
+            <div className='Workspace-main'>
+                <WorkspaceHeader />
+                <Routes>
+                    <Route path="/" element={<PersonalDashboard />} />
+                    <Route path="training" element={<TrainingPage />} />
+                    <Route path="statistics" element={<StatisticsPage />} />
+                    <Route path="competitors" element={<CompetitorsPage />} />
+                </Routes>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default MyWorkspacePage;
