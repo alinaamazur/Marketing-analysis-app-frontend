@@ -9,8 +9,8 @@ const TrainingPage = () => {
         { id: 1, title: 'Connect your account', status: 'Done' },
         { id: 2, title: 'Check your statistics', status: 'Done' },
         { id: 3, title: 'Compare all competitors accounts', status: 'Done' },
-        { id: 4, title: 'Create reports', status: 'Done' },
-        { id: 5, title: 'Perform A/B tests', status: 'Done' },
+        // { id: 4, title: 'Create reports', status: 'Done' },
+        // { id: 5, title: 'Perform A/B tests', status: 'Done' },
         { id: 6, title: 'Make sentiment analysis', status: 'Done' },
     ];
 

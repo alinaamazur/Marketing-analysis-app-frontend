@@ -26,9 +26,9 @@ const Header = () => {
     const dropdownOptions = [
         { key: 'Account Statistics', title: 'Account Statistics', description: 'Track user behavior and key metrics in real time' },
         { key: 'Competitor Tracking', title: 'Competitor Tracking', description: 'Monitor strategies, pricing campaigns of your competitors' },
-        { key: 'Report Generation', title: 'Report Generation', description: 'Automatically create reports to measure performance' },
-        { key: 'A/B Testing', title: 'A/B Testing Tool', description: 'Compare versions of content to see what performs best' },
-        { key: 'Sentiment Analysis', title: 'Sentiment Analysis', description: 'Analyze feedback to understand public sentiment' },
+        // { key: 'Report Generation', title: 'Report Generation', description: 'Automatically create reports to measure performance' },
+        // { key: 'A/B Testing', title: 'A/B Testing Tool', description: 'Compare versions of content to see what performs best' },
+        { key: 'Sentiment Analysis', title: 'Brand Tone Analysis', description: 'Understand how your brand sounds to your customers' },
     ];
 
     return (

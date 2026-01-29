@@ -5,6 +5,7 @@ import PersonalDashboard from './Components/PersonalDashboard';
 import TrainingPage from './Components/TrainingPage';
 import StatisticsPage from './Components/StatisticsPage';
 import CompetitorsPage from './Components/CompetitorsPage';
+import BrandTonePage from './Components/BrandTone';
 import './Workspace.css';
 import { Routes, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ const MyWorkspacePage = () => {
                     <Route path="training" element={<TrainingPage />} />
                     <Route path="statistics" element={<StatisticsPage />} />
                     <Route path="competitors" element={<CompetitorsPage />} />
+                    <Route path="brandtone" element={<BrandTonePage />} />
                 </Routes>
             </div>
         </div>

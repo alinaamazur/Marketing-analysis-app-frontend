@@ -1,0 +1,52 @@
+.Brand-tone-page-loaded {
+    display: flex;
+    height: 100vh;
+    background-color: #f5faff;
+    overflow-y: hidden;
+}
+
+.Brand-tone-content {
+    flex: 1;
+    padding: 1.25rem 2.5rem;
+    overflow-y: auto;
+}
+
+.Brand-tone-content h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #104FA2;
+}
+
+.Brand-tone-content p {
+    margin-bottom: 2rem;
+    color: #8E8E8E;
+    font-size: 1.1rem;
+    font-style: italic;
+    width: 80%;
+}
+
+.Sentiment-row {
+    margin-bottom: 2.5rem;
+}
+
+.Sentiment-label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: black;
+}
+
+.Sentiment-bar {
+    width: 80%;
+    height: 13px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.Sentiment-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.4s ease;
+}

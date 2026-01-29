@@ -28,9 +28,9 @@ const Footer = () => {
                             <ul className='Products-list'>
                                 <li><Link to='/log-in' className='Footer-link'>Account Statistics</Link></li>
                                 <li><Link to='/log-in' className='Footer-link'>Competitor Tracking</Link></li>
-                                <li><Link to='/log-in' className='Footer-link'>A/B Testing</Link></li>
-                                <li><Link to='/log-in' className='Footer-link'>Report Generation</Link></li>
-                                <li><Link to='/log-in' className='Footer-link'>Sentiment Analysis</Link></li>
+                                {/* <li><Link to='/log-in' className='Footer-link'>A/B Testing</Link></li>
+                                <li><Link to='/log-in' className='Footer-link'>Report Generation</Link></li> */}
+                                <li><Link to='/log-in' className='Footer-link'>Brand Tone Analysis</Link></li>
                             </ul>
 
                         </ul>

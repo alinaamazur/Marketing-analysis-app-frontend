@@ -34,11 +34,11 @@ const WorkspaceSidebar = () => (
                     <Link to="/my-workspace/statistics"><NavItem label='Statistics' icon={StatisticsImg} className='Statistics-icon' /></Link>
                     <Link to="/my-workspace/competitors"><NavItem label='Competitors' icon={CompetitorImg} className='Competitors-icon' /></Link>
                     {/* <NavItem label='Reports' icon={ReportImg} className='Reports-icon' /> */}
-                    <NavItem label='A/B Testing' icon={AbTestingImg} className='Abtesting-icon' />
-                    <NavItem label='Sentiment' icon={SmileImg} className='Sentiment-icon' />
+                    {/* <NavItem label='A/B Testing' icon={AbTestingImg} className='Abtesting-icon' /> */}
+                    <Link to="/my-workspace/brandtone"><NavItem label='Brand Tone' icon={SmileImg} className='Sentiment-icon' /></Link>
                 </nav>
             </div>
-            <img src={SettingsImg} alt='Settings' className='Settings-icon' />
+            {/* <img src={SettingsImg} alt='Settings' className='Settings-icon' /> */}
         </aside>
         <header className='My-workspace-header'></header>
     </div>
